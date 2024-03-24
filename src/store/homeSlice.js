@@ -7,9 +7,15 @@ export const homeSlice = createSlice({
 		genres: {},
 	},
 	reducers: {
-		getAPIConfig: (state, action) => {},
-		getGenres: (state, action) => {},
+		getAPIConfig: (state, action) => {
+			state.url = action.payload;
+		},
+		getGenres: (state, action) => {
+			state.genres = action.payload;
+		},
 	},
 });
+
+export const { getAPIConfig, getGenres } = homeSlice.actions;
 
 export default homeSlice.reducer;
