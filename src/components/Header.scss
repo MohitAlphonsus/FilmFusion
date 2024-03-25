@@ -1,0 +1,167 @@
+@use '../utilityStyles/mixins.scss' as media;
+
+.header {
+	position: fixed;
+	transform: translateY(0);
+	width: 100%;
+	height: 6rem;
+	display: flex;
+	align-items: center;
+	transition: all ease 0.5s;
+	z-index: 100;
+
+	&.top {
+		background: rgba(0, 0, 0, 0.25);
+		backdrop-filter: blur(3.5px);
+		-webkit-backdrop-filter: blur(3.5px);
+	}
+	&.show {
+		background-color: var(--dark-3);
+	}
+	&.hide {
+		transform: translateY(-6rem);
+	}
+
+	.content-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo {
+		cursor: pointer;
+		img {
+			height: 5rem;
+		}
+	}
+
+	.menu-items {
+		list-style-type: none;
+		display: none;
+		align-items: center;
+		color: var(--white);
+
+		@include media.md {
+			display: flex;
+		}
+
+		.menu-item {
+			height: 6rem;
+			display: flex;
+			align-items: center;
+			margin: 0 1.5rem;
+			font-weight: 500;
+			position: relative;
+			cursor: pointer;
+
+			&.search-icon {
+				margin-right: 0;
+			}
+
+			svg {
+				font-size: 1.8rem;
+			}
+
+			&:hover {
+				color: var(--pink);
+			}
+		}
+	}
+
+	.mobile-menu-items {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		@include media.md {
+			display: none;
+		}
+		svg {
+			font-size: 1.8rem;
+			color: var(--white);
+		}
+	}
+
+	&.mobile-view {
+		background: var(--dark-3);
+
+		.menu-items {
+			display: flex;
+			position: absolute;
+			top: 6rem;
+			left: 0;
+			background: var(--dark-3);
+			flex-direction: column;
+			width: 100%;
+			padding: 2rem 0;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+			animation: mobilemenu 0.3s ease forwards;
+
+			.menu-item {
+				font-size: 2rem;
+				width: 100%;
+				height: auto;
+				padding: 1.5rem 2rem;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				cursor: pointer;
+
+				&:last-child {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.search-bar {
+		width: 100%;
+		height: 6rem;
+		background-color: var(--white);
+		position: absolute;
+		top: 6rem;
+		animation: mobilemenu 0.3s ease forwards;
+
+		.search-input {
+			display: flex;
+			align-items: center;
+			height: 4rem;
+			margin-top: 1rem;
+			width: 100%;
+
+			svg {
+				font-size: 2rem;
+				flex-shrink: 0;
+				margin-left: 1rem;
+				cursor: pointer;
+			}
+
+			input {
+				width: 100%;
+				height: 5rem;
+				background-color: var(--white);
+				outline: 0;
+				border: 0;
+				border-radius: 3rem 0 0 3rem;
+				padding: 0 1.5rem;
+				font-size: 1.4rem;
+
+				@include media.md {
+					height: 6rem;
+					font-size: 2rem;
+					padding: 0 3rem;
+				}
+			}
+		}
+	}
+}
+
+@keyframes mobilemenu {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
