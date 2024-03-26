@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import useFetch from '../hooks/useFetch';
 import { LazyLoadImg } from '../components';
-import { Container } from '../UI';
+import { Container, InputElement } from '../UI';
 
 import './Hero.scss';
 
@@ -47,11 +47,11 @@ function Hero() {
 						Explore Thousands of Movies & TV shows at Your Fingertips
 					</span>
 					<div className="hero__search-bar">
-						<input
+						<InputElement
 							type="text"
 							placeholder="Search for movie of tv show..."
 							onChange={e => setQuery(e.target.value)}
-							onKeyUp={handleSearch}
+							onHandle={handleSearch}
 						/>
 						<button>Explore</button>
 					</div>
