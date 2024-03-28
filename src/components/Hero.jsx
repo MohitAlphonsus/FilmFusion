@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import useFetch from '../hooks/useFetch';
-import { LazyLoadImg } from '../components';
-import { Container, InputElement } from '../UI';
 
+import { useFetch } from '../hooks';
+
+import { Container, InputElement, LazyLoadImg } from '../UI';
 import './Hero.scss';
 
 function Hero() {

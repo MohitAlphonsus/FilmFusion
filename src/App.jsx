@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { fetchDataFromAPI } from './services/api';
 import { getAPIConfig } from './store/homeSlice';
 
-import { Header, Footer } from './components';
+import { Header, Footer } from './Layouts';
 import { Home, Details, Explore, SearchResult, PageNotFound } from './pages';
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
 				<Route path="explore/:mediaType" element={<Explore />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
-			{/* <Footer /> */}
+			<Footer />
 		</BrowserRouter>
 	);
 }

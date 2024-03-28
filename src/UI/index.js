@@ -1,4 +1,5 @@
 import Container from './Container';
 import InputElement from './InputElement';
+import LazyLoadImg from './LazyLoadImg';
 
-export { Container, InputElement };
+export { Container, InputElement, LazyLoadImg };
