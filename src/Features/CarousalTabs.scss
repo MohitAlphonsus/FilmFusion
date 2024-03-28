@@ -1,0 +1,41 @@
+.tabs {
+	height: 3.4rem;
+	background-color: white;
+	border-radius: 2rem;
+	padding: 0.2rem;
+
+	&__items {
+		display: flex;
+		align-items: center;
+		height: 3rem;
+		position: relative;
+	}
+
+	&__tab-item {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 10rem;
+		color: var(--black);
+		font-size: 1.4rem;
+		position: relative;
+		z-index: 1;
+		cursor: pointer;
+		transition: color ease 0.3s;
+
+		&.active {
+			color: white;
+		}
+	}
+
+	&__active-background {
+		height: 3rem;
+		width: 10rem;
+		border-radius: 1.5rem;
+		background-image: var(--gradient);
+		position: absolute;
+		left: 0;
+		transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.4s;
+	}
+}
