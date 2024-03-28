@@ -1,4 +1,5 @@
 import Hero from './Hero';
 import Trending from './Trending';
+import Carousal from './Carousal';
 
-export { Hero, Trending };
+export { Hero, Trending, Carousal };
