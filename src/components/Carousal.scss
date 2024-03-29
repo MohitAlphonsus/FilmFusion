@@ -1,6 +1,6 @@
 @use '../utilityStyles/mixins.scss' as media;
 
-.carousel {
+.carousal {
 	margin-bottom: 5rem;
 
 	.container {
@@ -8,7 +8,7 @@
 	}
 
 	.arrow {
-		font-size: 30px;
+		font-size: 3rem;
 		color: black;
 		position: absolute;
 		top: 44%;
@@ -17,103 +17,110 @@
 		opacity: 0.5;
 		z-index: 1;
 		display: none;
-		@include md {
+		@include media.md {
 			display: block;
 		}
 		&:hover {
 			opacity: 0.8;
 		}
 	}
-	.carouselLeftNav {
-		left: 30px;
+
+	.carousal-arrow-left {
+		left: 3rem;
 	}
-	.carouselRighttNav {
-		right: 30px;
+
+	.carousal-arrow-right {
+		right: 3rem;
 	}
-	.loadingSkeleton {
+
+	.loading-skeleton {
 		display: flex;
-		gap: 10px;
+		gap: 1rem;
 		overflow-y: hidden;
-		margin-right: -20px;
-		margin-left: -20px;
-		padding: 0 20px;
-		@include md {
-			gap: 20px;
+		margin-right: -2rem;
+		margin-left: -2rem;
+		padding: 0 2rem;
+		@include media.md {
+			gap: 2rem;
 			overflow: hidden;
 			margin: 0;
 			padding: 0;
 		}
-		.skeletonItem {
-			width: 125px;
-			@include md {
-				width: calc(25% - 15px);
+		.skeleton-item {
+			width: 12.5rem;
+			@include media.md {
+				width: calc(25% - 1.5rem);
 			}
-			@include lg {
-				width: calc(20% - 16px);
+			@include media.lg {
+				width: calc(20% - 1.6rem);
 			}
 			flex-shrink: 0;
 			.posterBlock {
-				border-radius: 12px;
+				border-radius: 1.2rem;
 				width: 100%;
 				aspect-ratio: 1 / 1.5;
-				margin-bottom: 30px;
+				margin-bottom: 3rem;
 			}
 			.textBlock {
 				display: flex;
 				flex-direction: column;
 				.title {
 					width: 100%;
-					height: 20px;
-					margin-bottom: 10px;
+					height: 2rem;
+					margin-bottom: 1rem;
 				}
 				.date {
 					width: 75%;
-					height: 20px;
+					height: 2rem;
 				}
 			}
 		}
 	}
-	.carouselItems {
+
+	.carousal-items {
 		display: flex;
-		gap: 10px;
+		gap: 1rem;
 		overflow-y: hidden;
-		margin-right: -20px;
-		margin-left: -20px;
-		padding: 0 20px;
-		@include md {
-			gap: 20px;
+		margin-right: -2rem;
+		margin-left: -2rem;
+		padding: 0 2rem;
+		@include media.md {
+			gap: 2rem;
 			overflow: hidden;
 			margin: 0;
 			padding: 0;
 		}
-		.carouselItem {
-			width: 125px;
+
+		.carousal-item {
+			width: 12.5rem;
 			cursor: pointer;
-			@include md {
-				width: calc(25% - 15px);
+			@include media.md {
+				width: calc(25% - 1.5rem);
 			}
-			@include lg {
-				width: calc(20% - 16px);
+			@include media.lg {
+				width: calc(20% - 1.6rem);
 			}
 			flex-shrink: 0;
-			.posterBlock {
+
+			.poster {
 				position: relative;
 				width: 100%;
 				aspect-ratio: 1 / 1.5;
 				background-size: cover;
 				background-position: center;
-				margin-bottom: 30px;
+				margin-bottom: 3rem;
 				display: flex;
 				align-items: flex-end;
 				justify-content: space-between;
-				padding: 10px;
+				padding: 1rem;
+
 				.lazy-load-image-background {
 					position: absolute;
 					top: 0;
 					left: 0;
 					width: 100%;
 					height: 100%;
-					border-radius: 12px;
+					border-radius: 1.2rem;
 					overflow: hidden;
 					img {
 						width: 100%;
@@ -122,43 +129,47 @@
 						object-position: center;
 					}
 				}
-				.circleRating {
-					width: 40px;
-					height: 40px;
+
+				.circle-rating {
+					width: 4rem;
+					height: 4rem;
 					position: relative;
-					top: 30px;
+					top: 3rem;
 					background-color: white;
 					flex-shrink: 0;
-					@include md {
-						width: 50px;
-						height: 50px;
+					@include media.md {
+						width: 5rem;
+						height: 5rem;
 					}
 				}
 				.genres {
 					display: none;
 					position: relative;
-					@include md {
+					@include media.md {
 						display: flex;
 						flex-flow: wrap;
 						justify-content: flex-end;
 					}
 				}
 			}
-			.textBlock {
+
+			.text-block {
 				color: white;
 				display: flex;
 				flex-direction: column;
+
 				.title {
-					font-size: 16px;
-					margin-bottom: 10px;
-					line-height: 24px;
-					@include ellipsis(1);
-					@include md {
-						font-size: 20px;
+					font-size: 1.6rem;
+					margin-bottom: 1rem;
+					line-height: 2.4rem;
+					@include media.ellipsis(1);
+					@include media.md {
+						font-size: 2rem;
 					}
 				}
+
 				.date {
-					font-size: 14px;
+					font-size: 1.4rem;
 					opacity: 0.5;
 				}
 			}
