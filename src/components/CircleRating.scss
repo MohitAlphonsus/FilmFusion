@@ -1,7 +1,20 @@
 .circle {
-	&__inner {
+	height: 5rem;
+	width: 5rem;
+	background-color: var(--white);
+	border-radius: 50%;
+	position: relative;
+
+	&__progress {
+		fill: transparent;
+		stroke-width: 0.3rem;
+		transform: rotate(-90deg);
+		transform-origin: center;
+		stroke-linecap: round;
 	}
 
 	&__rating {
+		font-size: 1.4rem;
+		font-weight: 600;
 	}
 }

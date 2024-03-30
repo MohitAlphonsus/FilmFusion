@@ -6,14 +6,27 @@ import { useSelector } from 'react-redux';
 import { dateFormat } from '../services/utilities';
 import { Container, LazyLoadImg } from '../UI';
 import { NoPoster } from '../assets';
+import { CircleRating, Genres } from '../components';
 import './Carousal.scss';
 
 function Carousal({ data, loading }) {
 	const carousalContainer = useRef();
 	const { url } = useSelector(state => state.home);
+
 	const navigate = useNavigate();
 
-	function navigateDirectionTo(direction) {}
+	function navigateDirectionTo(direction) {
+		const container = carousalContainer.current;
+		const scrollAmount =
+			direction === 'left'
+				? container.scrollLeft - (container.offsetWidth + 20)
+				: container.scrollLeft + (container.offsetWidth + 20);
+
+		container.scrollTo({
+			left: scrollAmount,
+			behavior: 'smooth',
+		});
+	}
 
 	function skeletonItem() {
 		return (
@@ -39,16 +52,25 @@ function Carousal({ data, loading }) {
 					onClick={() => navigateDirectionTo('right')}
 				/>
 				{!loading ? (
-					<div className="carousal-items">
+					<div className="carousal-items" ref={carousalContainer}>
 						{data?.map(item => {
 							const posterUrl = item.poster_path
 								? url.poster + item.poster_path
 								: NoPoster;
 
 							return (
-								<div key={item.id} className="carousal-item">
+								<div
+									key={item.id}
+									className="carousal-item"
+									onClick={() => navigate(`/${item.media_type}/${item.id}`)}
+								>
 									<div className="poster">
 										<LazyLoadImg src={posterUrl} />
+										<CircleRating
+											rating={item?.vote_average.toFixed(1)}
+											className="circle-rating"
+										/>
+										<Genres data={item.genre_ids.slice(0, 2)} />
 									</div>
 									<div className="text-block">
 										<span className="title">

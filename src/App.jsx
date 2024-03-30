@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { fetchDataFromAPI } from './services/api';
-import { getAPIConfig } from './store/homeSlice';
+import { getAPIConfig, getGenres } from './store/homeSlice';
 
 import { Header, Footer } from './Layouts';
 import { Home, Details, Explore, SearchResult, PageNotFound } from './pages';
@@ -12,7 +12,7 @@ function App() {
 	const dispatch = useDispatch();
 	const { url } = useSelector(state => state.home);
 
-	const apiTest = () => {
+	const fetchApiConfig = () => {
 		fetchDataFromAPI('/configuration').then(res => {
 			const imgUrl = {
 				backdrop: res.images.secure_base_url + 'original',
@@ -25,8 +25,27 @@ function App() {
 	};
 
 	useEffect(function () {
-		apiTest();
+		fetchApiConfig();
+		genresCall();
 	}, []);
+
+	async function genresCall() {
+		let promises = [];
+		let endPoints = ['tv', 'movie'];
+		let allGenres = {};
+
+		endPoints.forEach(genreEndpoint => {
+			promises.push(fetchDataFromAPI(`/genre/${genreEndpoint}/list`));
+		});
+
+		const data = await Promise.all(promises);
+
+		data.map(({ genres }) => {
+			return genres.map(item => (allGenres[item.id] = item));
+		});
+
+		dispatch(getGenres(allGenres));
+	}
 
 	return (
 		<BrowserRouter>

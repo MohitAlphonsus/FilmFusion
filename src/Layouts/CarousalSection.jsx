@@ -2,16 +2,12 @@ import { CarousalTabs } from '../Features/';
 import { Container } from '../UI';
 import './CarousalSection.scss';
 
-function CarousalSection({ title, tabData, setEndPoint }) {
-	function tabChangHandler(tab) {
-		setEndPoint(tab === 'Day' ? 'day' : 'week');
-	}
-
+function CarousalSection({ title, tabData, onTabChange }) {
 	return (
-		<div className="carousal">
+		<div className="carousal-section">
 			<Container>
-				<h3 className="carousal__title">{title}</h3>
-				<CarousalTabs data={tabData} onTabChange={tabChangHandler} />
+				<h3 className="carousal-section__title">{title}</h3>
+				<CarousalTabs data={tabData} onTabChange={onTabChange} />
 			</Container>
 		</div>
 	);

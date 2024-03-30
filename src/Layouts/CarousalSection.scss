@@ -1,11 +1,9 @@
-.carousal {
-	margin-bottom: 5rem;
-
+.carousal-section {
 	.container {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: 2rem;
+		margin-bottom: 3rem;
 	}
 
 	&__title {

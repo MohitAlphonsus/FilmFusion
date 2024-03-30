@@ -3,7 +3,12 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function LazyLoadImg({ src, className }) {
 	return (
-		<LazyLoadImage className={className || ''} alt="" effect="blur" src={src} />
+		<LazyLoadImage
+			className={className || ''}
+			alt=""
+			effect="blur"
+			src={`${src}`}
+		/>
 	);
 }
 

@@ -71,7 +71,7 @@ function Header() {
 
 	return (
 		<header className={`header ${mobileMenu ? 'mobile-view' : ''} ${show}`}>
-			<Container className="content-wrapper">
+			<Container>
 				<div className="logo" onClick={() => navigate('/')}>
 					LOGO.
 				</div>

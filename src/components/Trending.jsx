@@ -8,12 +8,16 @@ function Trending() {
 
 	const { data, loading } = useFetch(`/trending/all/${endPoint}`);
 
+	function tabChangHandler(tab) {
+		setEndPoint(tab === 'Day' ? 'day' : 'week');
+	}
+
 	return (
 		<>
 			<CarousalSection
 				title="Trending"
 				tabData={['Day', 'Week']}
-				setEndPoint={setEndPoint}
+				onTabChange={tabChangHandler}
 			/>
 			<Carousal data={data?.results} loading={loading} />
 		</>

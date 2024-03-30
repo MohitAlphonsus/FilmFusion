@@ -1,10 +1,9 @@
 @use '../utilityStyles/mixins.scss' as media;
 
 .carousal {
-	margin-bottom: 5rem;
-
 	.container {
 		position: relative;
+		margin-bottom: 6rem;
 	}
 
 	.arrow {
@@ -131,17 +130,15 @@
 				}
 
 				.circle-rating {
-					width: 4rem;
-					height: 4rem;
 					position: relative;
 					top: 3rem;
-					background-color: white;
 					flex-shrink: 0;
 					@include media.md {
 						width: 5rem;
 						height: 5rem;
 					}
 				}
+
 				.genres {
 					display: none;
 					position: relative;
