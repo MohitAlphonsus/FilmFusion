@@ -1,4 +1,4 @@
-import { Hero, Trending, Popular } from '../components';
+import { Hero, Trending, Popular, TopRated } from '../components';
 
 function Home() {
 	return (
@@ -6,6 +6,7 @@ function Home() {
 			<Hero />
 			<Trending />
 			<Popular />
+			<TopRated />
 			<div style={{ height: 1000 }}></div>
 		</>
 	);
