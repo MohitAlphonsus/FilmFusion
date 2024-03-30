@@ -18,8 +18,9 @@ function Popular() {
 				title="What's Popular"
 				tabData={['Movies', 'TV Shows']}
 				onTabChange={tabChangHandler}
+				
 			/>
-			<Carousal data={data?.results} loading={loading} />
+			<Carousal data={data?.results} loading={loading} endPoint={endPoint} />
 		</>
 	);
 }

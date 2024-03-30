@@ -9,7 +9,7 @@ import { NoPoster } from '../assets';
 import { CircleRating, Genres } from '../components';
 import './Carousal.scss';
 
-function Carousal({ data, loading }) {
+function Carousal({ data, loading, endPoint }) {
 	const carousalContainer = useRef();
 	const { url } = useSelector(state => state.home);
 
@@ -62,7 +62,9 @@ function Carousal({ data, loading }) {
 								<div
 									key={item.id}
 									className="carousal-item"
-									onClick={() => navigate(`/${item.media_type}/${item.id}`)}
+									onClick={() =>
+										navigate(`/${item.media_type || endPoint}/${item.id}`)
+									}
 								>
 									<div className="poster">
 										<LazyLoadImg src={posterUrl} />
