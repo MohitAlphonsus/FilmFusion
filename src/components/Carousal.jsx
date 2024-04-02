@@ -30,11 +30,13 @@ function Carousal({ data, loading, endPoint }) {
 
 	function skeletonItem() {
 		return (
-			<div className="skeleton-item">
-				<div className="poster skeleton"></div>
-				<div className="text-block">
-					<div className="title skeleton"></div>
-					<div className="date skeleton"></div>
+			<div className="loading-skeleton">
+				<div className="skeleton-item">
+					<div className="poster skeleton"></div>
+					<div className="text-block">
+						<div className="title skeleton"></div>
+						<div className="date skeleton"></div>
+					</div>
 				</div>
 			</div>
 		);
@@ -87,13 +89,13 @@ function Carousal({ data, loading, endPoint }) {
 						})}
 					</div>
 				) : (
-					<div className="loading-skeleton">
+					<>
 						{skeletonItem()}
 						{skeletonItem()}
 						{skeletonItem()}
 						{skeletonItem()}
 						{skeletonItem()}
-					</div>
+					</>
 				)}
 			</Container>
 		</div>
