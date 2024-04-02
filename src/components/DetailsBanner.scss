@@ -1,0 +1,223 @@
+@use '../utilityStyles/mixins.scss' as media;
+
+.detailsBanner {
+	width: 100%;
+	background-color: var(--black);
+	padding-top: 10rem;
+	margin-bottom: 5rem;
+	@include media.md {
+		margin-bottom: 0;
+		padding-top: 12rem;
+		min-height: 70rem;
+	}
+	.backdrop-img {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.1;
+		overflow: hidden;
+		.lazy-load-image-background {
+			width: 100%;
+			height: 100%;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
+	.opacity-layer {
+		width: 100%;
+		height: 25rem;
+		background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+
+	.content {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		gap: 2.5rem;
+		@include media.md {
+			gap: 5rem;
+			flex-direction: row;
+		}
+		.left {
+			flex-shrink: 0;
+			.posterImg {
+				width: 100%;
+				display: block;
+				border-radius: 1.2rem;
+				@include media.md {
+					max-width: 35rem;
+				}
+			}
+		}
+		.right {
+			color: white;
+			.title {
+				font-size: 2.8rem;
+				line-height: 4rem;
+				@include media.md {
+					font-size: 3.4rem;
+					line-height: 4.4rem;
+				}
+			}
+			.subtitle {
+				font-size: 1.6rem;
+				line-height: 2.4rem;
+				margin-bottom: 1.5rem;
+				font-style: italic;
+				opacity: 0.5;
+				@include media.md {
+					font-size: 2rem;
+					line-height: 2.8rem;
+				}
+			}
+			.genres {
+				margin-bottom: 2.5rem;
+				flex-flow: row wrap;
+			}
+			.overview {
+				margin-bottom: 2.5rem;
+				.heading {
+					font-size: 2.4rem;
+					margin-bottom: 1rem;
+				}
+				.description {
+					font-size: 1.4rem;
+					color: var(--white);
+					opacity: 0.7;
+					line-height: 2.4rem;
+					@include media.md {
+						padding-right: 10rem;
+					}
+				}
+			}
+			.circleRating {
+				max-width: 7rem;
+				background-color: var(--black2);
+				@include media.md {
+					max-width: 9rem;
+				}
+				.CircularProgressbar-text {
+					fill: white;
+				}
+			}
+			.playbtn {
+				display: flex;
+				align-items: center;
+				gap: 2rem;
+				cursor: pointer;
+				svg {
+					width: 6rem;
+				}
+				.text {
+					font-size: 2rem;
+					transition: all 0.7s ease-in-out;
+				}
+				.triangle {
+					stroke-dasharray: 240;
+					stroke-dashoffset: 480;
+					stroke: white;
+					transform: translateY(0);
+					transition: all 0.7s ease-in-out;
+				}
+				.circle {
+					stroke: white;
+					stroke-dasharray: 650;
+					stroke-dashoffset: 1300;
+					transition: all 0.5s ease-in-out;
+				}
+				&:hover {
+					.text {
+						color: var(--pink);
+					}
+					.triangle {
+						stroke-dashoffset: 0;
+						opacity: 1;
+						stroke: var(--pink);
+						animation: trailorPlay 0.7s ease-in-out;
+					}
+					.circle {
+						stroke-dashoffset: 0;
+						stroke: var(--pink);
+					}
+				}
+			}
+			.row {
+				display: flex;
+				align-items: center;
+				gap: 2.5rem;
+				margin-bottom: 2.5rem;
+			}
+
+			.info {
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				padding: 1.5rem 0;
+				display: flex;
+				.infoItem {
+					margin-right: 1rem;
+					display: flex;
+					flex-flow: row wrap;
+				}
+				.text {
+					margin-right: 1rem;
+					opacity: 0.5;
+					line-height: 2.4rem;
+					&.bold {
+						font-weight: 600;
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	.detailsBannerSkeleton {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		gap: 2.5rem;
+		@include media.md {
+			gap: 5rem;
+			flex-direction: row;
+		}
+		.contentWrapper {
+			display: flex;
+			gap: 5rem;
+		}
+		.left {
+			flex-shrink: 0;
+			width: 100%;
+			display: block;
+			border-radius: 1.2rem;
+			aspect-ratio: 1/1.5;
+			@include media.md {
+				max-width: 35rem;
+			}
+		}
+		.right {
+			width: 100%;
+			.row {
+				width: 100%;
+				height: 2.5rem;
+				margin-bottom: 2rem;
+				border-radius: 5rem;
+				&:nth-child(2) {
+					width: 75%;
+					margin-bottom: 5rem;
+				}
+				&:nth-child(5) {
+					width: 50%;
+					margin-bottom: 5rem;
+				}
+			}
+		}
+	}
+}
